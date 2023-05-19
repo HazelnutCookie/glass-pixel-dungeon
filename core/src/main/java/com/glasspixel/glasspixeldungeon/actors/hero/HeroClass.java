@@ -86,8 +86,6 @@ public enum HeroClass {
 
 	public void initHero( Hero hero ) {
 
-		new Pitchfork().collect();
-
 		hero.heroClass = this;
 		Talent.initClassTalents(hero);
 
