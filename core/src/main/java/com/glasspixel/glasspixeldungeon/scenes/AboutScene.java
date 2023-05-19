@@ -62,6 +62,22 @@ public class AboutScene extends PixelScene {
 		Component content = list.content();
 		content.clear();
 
+		//*** Glass Pixel Dungeon Credits ***
+		final int GPD_COLOR = 0x669999;
+		CreditsBlock hazel = new CreditsBlock(true, GPD_COLOR,
+				"Glass Pixel Dungeon",
+				Icons.SHPX.get(),
+				"Developed by: _Hazel_\nBased on Shattered Pixel Dungeon's open source",
+				"github.com/HazelnutCookie/glass-pixel-dungeon",
+				"https://github.com/HazelnutCookie/glass-pixel-dungeon");
+		if (landscape()){
+			hazel.setRect((w - fullWidth)/2f - 6, 10, 120, 0);
+		} else {
+			hazel.setRect((w - fullWidth)/2f, 6, 120, 0);
+		}
+		content.add(hazel);
+		addLine(hazel.bottom() + 5, content);
+
 		//*** Shattered Pixel Dungeon Credits ***
 
 		String shpxLink = "https://ShatteredPixel.com";
@@ -77,9 +93,9 @@ public class AboutScene extends PixelScene {
 				"ShatteredPixel.com",
 				shpxLink);
 		if (landscape()){
-			shpx.setRect((w - fullWidth)/2f - 6, 10, 120, 0);
+			shpx.setRect((w - fullWidth)/2f - 6, hazel.bottom()+12, 120, 0);
 		} else {
-			shpx.setRect((w - fullWidth)/2f, 6, 120, 0);
+			shpx.setRect((w - fullWidth)/2f, hazel.bottom()+12, 120, 0);
 		}
 		content.add(shpx);
 

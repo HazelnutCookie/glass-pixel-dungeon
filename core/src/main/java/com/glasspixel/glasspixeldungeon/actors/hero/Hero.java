@@ -677,12 +677,12 @@ public class Hero extends Char {
 			return false;
 		}
 
+		KindOfWeapon wep = Dungeon.hero.belongings.attackingWeapon();
+
 		//can always attack adjacent enemies
-		if (Dungeon.level.adjacent(pos, enemy.pos)) {
+		if ((Dungeon.level.adjacent(pos, enemy.pos)) && (wep == null)){
 			return true;
 		}
-
-		KindOfWeapon wep = Dungeon.hero.belongings.attackingWeapon();
 
 		if (wep != null){
 			return wep.canReach(this, enemy.pos);

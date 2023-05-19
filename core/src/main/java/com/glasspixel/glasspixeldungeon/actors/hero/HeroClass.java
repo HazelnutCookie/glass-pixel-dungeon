@@ -63,11 +63,7 @@ import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRage;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfMagicMissile;
 import com.glasspixel.glasspixeldungeon.items.weapon.SpiritBow;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Dagger;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Gloves;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.MagesStaff;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Rapier;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.WornShortsword;
+import com.glasspixel.glasspixeldungeon.items.weapon.melee.*;
 import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingKnife;
 import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingSpike;
 import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingStone;
@@ -89,6 +85,8 @@ public enum HeroClass {
 	}
 
 	public void initHero( Hero hero ) {
+
+		new Pitchfork().collect();
 
 		hero.heroClass = this;
 		Talent.initClassTalents(hero);
