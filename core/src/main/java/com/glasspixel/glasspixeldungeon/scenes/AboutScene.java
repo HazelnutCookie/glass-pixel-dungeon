@@ -76,6 +76,19 @@ public class AboutScene extends PixelScene {
 			hazel.setRect((w - fullWidth)/2f, 6, 120, 0);
 		}
 		content.add(hazel);
+		CreditsBlock amber = new CreditsBlock(true, GPD_COLOR,
+				"GPD Art",
+				Icons.SHPX.get(),
+				"Title screen and lots of spriting by Naomi Y",
+				"https://puppybytes.tumblr.com/",
+				"https://puppybytes.tumblr.com/");
+		amber.setSize(colWidth/2f, 0);
+		if (landscape()){
+			amber.setPos((hazel.right()+20), hazel.top());
+		} else {
+			amber.setRect((w - fullWidth)/2f, 6, 120, 0);
+		}
+		content.add(amber);
 		addLine(hazel.bottom() + 5, content);
 
 		//*** Shattered Pixel Dungeon Credits ***
