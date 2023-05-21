@@ -22,6 +22,7 @@
 package com.glasspixel.glasspixeldungeon.sprites;
 
 import com.glasspixel.glasspixeldungeon.Assets;
+import com.glasspixel.glasspixeldungeon.actors.mobs.BullshitShaman;
 import com.glasspixel.glasspixeldungeon.actors.mobs.Shaman;
 import com.glasspixel.glasspixeldungeon.effects.MagicMissile;
 import com.watabou.noosa.TextureFilm;
@@ -71,7 +72,7 @@ public abstract class ShamanSprite extends MobSprite {
 				new Callback() {
 					@Override
 					public void call() {
-						((Shaman)ch).onZapComplete();
+						((BullshitShaman)ch).onZapComplete();
 					}
 				} );
 		Sample.INSTANCE.play( Assets.Sounds.ZAP );
