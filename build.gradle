@@ -15,7 +15,7 @@ allprojects {
         appPackageName = 'com.glasspixel.glasspixeldungeon'
 
         appVersionCode = 700
-        appVersionName = '2.0.2'
+        appVersionName = '0.0.1'
 
         appJavaCompatibility = JavaVersion.VERSION_1_8
 
