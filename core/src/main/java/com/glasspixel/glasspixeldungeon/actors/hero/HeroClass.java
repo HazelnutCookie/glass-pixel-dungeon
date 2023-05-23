@@ -61,6 +61,7 @@ import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMirrorImage;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRage;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfUpgrade;
+import com.glasspixel.glasspixeldungeon.items.stones.StoneOfTransference;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfMagicMissile;
 import com.glasspixel.glasspixeldungeon.items.weapon.SpiritBow;
 import com.glasspixel.glasspixeldungeon.items.weapon.melee.*;

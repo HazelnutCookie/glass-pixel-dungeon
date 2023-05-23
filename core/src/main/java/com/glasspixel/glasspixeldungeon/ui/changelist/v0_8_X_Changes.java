@@ -27,7 +27,7 @@ import com.glasspixel.glasspixeldungeon.actors.mobs.DM300;
 import com.glasspixel.glasspixeldungeon.items.artifacts.TalismanOfForesight;
 import com.glasspixel.glasspixeldungeon.items.rings.RingOfEnergy;
 import com.glasspixel.glasspixeldungeon.items.rings.RingOfWealth;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfAugmentation;
+import com.glasspixel.glasspixeldungeon.items.stones.StoneOfTransference;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfBlastWave;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfCorruption;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfFireblast;
@@ -692,7 +692,7 @@ public class v0_8_X_Changes {
 		changes.addButton( new ChangeButton(new BuffIcon(BuffIndicator.BLESS, true), "Bless changes",
 				"Accuracy and evasion bonuses from blessed buff increased to 25% from 20%." ));
 
-		changes.addButton( new ChangeButton(new StoneOfAugmentation(),
+		changes.addButton( new ChangeButton(new StoneOfTransference(),
 				"The Evasion armor augment has been underperforming verses the defence augment, so I'm adjusting the stat tradeoff they provide:\n" +
 				"_-_ Evasion now grants 33% more evasion\n" +
 				"_-_ Defense now costs 33% more evasion"));
@@ -705,7 +705,7 @@ public class v0_8_X_Changes {
 		changes.hardlight( CharSprite.NEGATIVE );
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new StoneOfAugmentation(),
+		changes.addButton( new ChangeButton(new StoneOfTransference(),
 				"The Defense armor augment has been overperforming verses the evasion augment, so I'm adjusting the stat tradeoff they provide:\n" +
 				"_-_ Defense now costs 33% more evasion\n" +
 				"_-_ Evasion now grants 33% more evasion"));

@@ -90,7 +90,7 @@ import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.glasspixel.glasspixeldungeon.items.stones.Runestone;
 import com.glasspixel.glasspixeldungeon.items.stones.StoneOfFear;
 import com.glasspixel.glasspixeldungeon.items.stones.StoneOfAggression;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfAugmentation;
+import com.glasspixel.glasspixeldungeon.items.stones.StoneOfTransference;
 import com.glasspixel.glasspixeldungeon.items.stones.StoneOfBlast;
 import com.glasspixel.glasspixeldungeon.items.stones.StoneOfBlink;
 import com.glasspixel.glasspixeldungeon.items.stones.StoneOfClairvoyance;
@@ -316,7 +316,7 @@ public class Generator {
 					StoneOfAggression.class,
 					StoneOfBlast.class,
 					StoneOfFear.class,
-					StoneOfAugmentation.class  //1 is sold in each shop
+					TinkerKit.class  //1 is sold in each shop
 			};
 			STONE.defaultProbs = new float[]{ 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0 };
 			STONE.probs = STONE.defaultProbs.clone();

@@ -41,7 +41,7 @@ import com.glasspixel.glasspixeldungeon.items.rings.RingOfEvasion;
 import com.glasspixel.glasspixeldungeon.items.rings.RingOfMight;
 import com.glasspixel.glasspixeldungeon.items.rings.RingOfSharpshooting;
 import com.glasspixel.glasspixeldungeon.items.rings.RingOfWealth;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfAugmentation;
+import com.glasspixel.glasspixeldungeon.items.stones.StoneOfTransference;
 import com.glasspixel.glasspixeldungeon.items.stones.StoneOfEnchantment;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfCorrosion;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfCorruption;
@@ -91,7 +91,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"I also made another attempt at designing the Berserker in v0.6.5. Prior to this update his death-defying rage would always trigger if it was available. That built-in safety net translated to a win rate that was hugely higher than the other subclasses, so I decided to make building rage and cheating death much harder to access. The Berserker retained his simple up-front gameplay, but started requiring investment in armor and rage management to access his power."));
 		
-		changes.addButton( new ChangeButton(new StoneOfAugmentation(),
+		changes.addButton( new ChangeButton(new StoneOfTransference(),
 				"The weightstone is now the runestone of augmentation!\n\n" +
 				"Usability on weapons unchanged, can still be used to enhance either speed or damage at the cost of the other.\n\n" +
 				"Can now be used on armor! Armor can be modified to enhance either defense or evasion, at the cost of the other.\n\n" +
@@ -195,7 +195,7 @@ public class v0_6_X_Changes {
 				"_-_ Armor is now 2x effective against bone explosion, up from 0.5x\n\n" +
 				"_-_ Loot drop chance reduced to 1/8, from 1/5"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.KIT, null), "Rogue Garb and Huntress Cloak",
+		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.TINKER_KIT, null), "Rogue Garb and Huntress Cloak",
 				"Eventually I want to totally overhaul class armors. In the meantime though, two of the armors are disproportionately powerful with mind vision, and need to be adjusted:\n\n" +
 				"_-_ Rogue's smoke bomb now has a max range of 8 and does not go through walls\n\n" +
 				"_-_ Huntress's spectral blades now have a max range of 12"));

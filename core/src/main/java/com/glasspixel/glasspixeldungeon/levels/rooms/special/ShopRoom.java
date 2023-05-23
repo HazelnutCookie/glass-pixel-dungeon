@@ -25,13 +25,7 @@ import com.glasspixel.glasspixeldungeon.Dungeon;
 import com.glasspixel.glasspixeldungeon.actors.hero.Belongings;
 import com.glasspixel.glasspixeldungeon.actors.mobs.Mob;
 import com.glasspixel.glasspixeldungeon.actors.mobs.npcs.Shopkeeper;
-import com.glasspixel.glasspixeldungeon.items.Ankh;
-import com.glasspixel.glasspixeldungeon.items.Generator;
-import com.glasspixel.glasspixeldungeon.items.Heap;
-import com.glasspixel.glasspixeldungeon.items.Honeypot;
-import com.glasspixel.glasspixeldungeon.items.Item;
-import com.glasspixel.glasspixeldungeon.items.Stylus;
-import com.glasspixel.glasspixeldungeon.items.Torch;
+import com.glasspixel.glasspixeldungeon.items.*;
 import com.glasspixel.glasspixeldungeon.items.armor.LeatherArmor;
 import com.glasspixel.glasspixeldungeon.items.armor.MailArmor;
 import com.glasspixel.glasspixeldungeon.items.armor.PlateArmor;
@@ -49,7 +43,6 @@ import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfIdentify;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRemoveCurse;
 import com.glasspixel.glasspixeldungeon.items.spells.Alchemize;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfAugmentation;
 import com.glasspixel.glasspixeldungeon.items.weapon.melee.MeleeWeapon;
 import com.glasspixel.glasspixeldungeon.items.weapon.missiles.darts.TippedDart;
 import com.glasspixel.glasspixeldungeon.levels.Level;
@@ -224,7 +217,7 @@ public class ShopRoom extends SpecialRoom {
 		}
 
 		itemsToSpawn.add( new Ankh() );
-		itemsToSpawn.add( new StoneOfAugmentation() );
+		itemsToSpawn.add( new TinkerKit() );
 
 		TimekeepersHourglass hourglass = Dungeon.hero.belongings.getItem(TimekeepersHourglass.class);
 		if (hourglass != null && hourglass.isIdentified() && !hourglass.cursed){

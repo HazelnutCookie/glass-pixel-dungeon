@@ -19,13 +19,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.glasspixel.glasspixeldungeon.items.stones;
+package com.glasspixel.glasspixeldungeon.items;
 
+import com.glasspixel.glasspixeldungeon.Assets;
+import com.glasspixel.glasspixeldungeon.actors.buffs.Invisibility;
 import com.glasspixel.glasspixeldungeon.actors.hero.Belongings;
-import com.glasspixel.glasspixeldungeon.items.Item;
+import com.glasspixel.glasspixeldungeon.actors.hero.Hero;
 import com.glasspixel.glasspixeldungeon.items.armor.Armor;
+import com.glasspixel.glasspixeldungeon.items.bags.Bag;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.glasspixel.glasspixeldungeon.items.scrolls.exotic.ScrollOfEnchantment;
+import com.glasspixel.glasspixeldungeon.items.stones.InventoryStone;
 import com.glasspixel.glasspixeldungeon.items.weapon.Weapon;
 import com.glasspixel.glasspixeldungeon.messages.Messages;
 import com.glasspixel.glasspixeldungeon.scenes.GameScene;
@@ -35,24 +39,72 @@ import com.glasspixel.glasspixeldungeon.ui.RedButton;
 import com.glasspixel.glasspixeldungeon.ui.RenderedTextBlock;
 import com.glasspixel.glasspixeldungeon.ui.Window;
 import com.glasspixel.glasspixeldungeon.windows.IconTitle;
+import com.glasspixel.glasspixeldungeon.windows.WndBag;
+import com.watabou.noosa.audio.Sample;
 
-public class StoneOfAugmentation extends InventoryStone {
+import java.util.ArrayList;
+
+public class TinkerKit extends Item {
 	
 	{
-		preferredBag = Belongings.Backpack.class;
-		image = ItemSpriteSheet.STONE_AUGMENTATION;
+		image = ItemSpriteSheet.TINKER_KIT;
+	}
+
+	public static final String AC_USE	= "USE";
+
+	@Override
+	public boolean isUpgradable() {
+		return false;
 	}
 
 	@Override
+	public boolean isIdentified() {
+		return true;
+	}
+
+	private String inventoryTitle(){
+		return Messages.get(this, "inv_title");
+	}
+
+	protected void activate(int cell) {
+		GameScene.selectItem( itemSelector );
+	}
+
+	@Override
+	public ArrayList<String> actions(Hero hero) {
+		ArrayList<String> actions = super.actions( hero );
+		actions.add( AC_USE );
+		return actions;
+	}
+
+	@Override
+	public void execute(Hero hero, String action) {
+		super.execute(hero, action);
+		if (action.equals(AC_USE)){
+			curItem = detach( hero.belongings.backpack );
+			activate(curUser.pos);
+		}
+	}
+
+
 	protected boolean usableOnItem(Item item) {
 		return ScrollOfEnchantment.enchantable(item);
 	}
 
-	@Override
+
 	protected void onItemSelected(Item item) {
 		
 		GameScene.show(new WndAugment( item));
 		
+	}
+
+	protected void useAnimation() {
+		curUser.spend( 1f );
+		curUser.busy();
+		curUser.sprite.operate(curUser.pos);
+
+		Sample.INSTANCE.play( Assets.Sounds.READ );
+		Invisibility.dispel();
 	}
 	
 	public void apply( Weapon weapon, Weapon.Augment augment ) {
@@ -79,6 +131,36 @@ public class StoneOfAugmentation extends InventoryStone {
 	public int energyVal() {
 		return 4 * quantity;
 	}
+
+	protected WndBag.ItemSelector itemSelector = new WndBag.ItemSelector() {
+
+		@Override
+		public String textPrompt() {
+			return inventoryTitle();
+		}
+
+		@Override
+		public boolean itemSelectable(Item item) {
+			return usableOnItem(item);
+		}
+
+		@Override
+		public void onSelect( Item item ) {
+
+			//it would be better to eliminate the curItem static variable.
+			if (!(curItem instanceof TinkerKit)){
+				return;
+			}
+
+			if (item != null) {
+
+				((TinkerKit)curItem).onItemSelected( item );
+
+			} else{
+				curItem.collect( curUser.belongings.backpack );
+			}
+		}
+	};
 	
 	public class WndAugment extends Window {
 		
@@ -108,7 +190,7 @@ public class StoneOfAugmentation extends InventoryStone {
 							@Override
 							protected void onClick() {
 								hide();
-								StoneOfAugmentation.this.apply( (Weapon)toAugment, aug );
+								TinkerKit.this.apply( (Weapon)toAugment, aug );
 							}
 						};
 						btnSpeed.setRect( MARGIN, pos + MARGIN, BUTTON_WIDTH, BUTTON_HEIGHT );
@@ -125,7 +207,7 @@ public class StoneOfAugmentation extends InventoryStone {
 							@Override
 							protected void onClick() {
 								hide();
-								StoneOfAugmentation.this.apply( (Armor) toAugment, aug );
+								TinkerKit.this.apply( (Armor) toAugment, aug );
 							}
 						};
 						btnSpeed.setRect( MARGIN, pos + MARGIN, BUTTON_WIDTH, BUTTON_HEIGHT );
@@ -140,7 +222,7 @@ public class StoneOfAugmentation extends InventoryStone {
 				@Override
 				protected void onClick() {
 					hide();
-					StoneOfAugmentation.this.collect();
+					TinkerKit.this.collect();
 				}
 			};
 			btnCancel.setRect( MARGIN, pos + MARGIN, BUTTON_WIDTH, BUTTON_HEIGHT );
@@ -151,7 +233,7 @@ public class StoneOfAugmentation extends InventoryStone {
 		
 		@Override
 		public void onBackPressed() {
-			StoneOfAugmentation.this.collect();
+			TinkerKit.this.collect();
 			super.onBackPressed();
 		}
 	}

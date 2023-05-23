@@ -78,7 +78,7 @@ public class Item implements Bundlable {
 	protected int quantity = 1;
 	public boolean dropsDownHeap = false;
 	
-	private int level = 0;
+	public int level = 0;
 
 	public boolean levelKnown = false;
 	

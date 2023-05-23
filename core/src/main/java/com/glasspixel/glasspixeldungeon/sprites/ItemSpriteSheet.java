@@ -139,7 +139,7 @@ public class ItemSpriteSheet {
 	public static final int CROWN           = MISC_CONSUMABLE +12;
 	public static final int AMULET          = MISC_CONSUMABLE +13;
 	public static final int MASTERY         = MISC_CONSUMABLE +14;
-	public static final int KIT             = MISC_CONSUMABLE +15;
+	public static final int TINKER_KIT             = MISC_CONSUMABLE +15;
 	static{
 		assignItemRect(ANKH,            10, 16);
 		assignItemRect(STYLUS,          12, 13);
@@ -158,7 +158,7 @@ public class ItemSpriteSheet {
 		assignItemRect(CROWN,           13,  7);
 		assignItemRect(AMULET,          16, 16);
 		assignItemRect(MASTERY,         13, 16);
-		assignItemRect(KIT,             16, 15);
+		assignItemRect(TINKER_KIT,             16, 15);
 	}
 	
 	private static final int BOMBS          =                               xy(1, 5);   //16 slots
