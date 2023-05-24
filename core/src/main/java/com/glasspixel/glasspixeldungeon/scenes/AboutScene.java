@@ -68,27 +68,43 @@ public class AboutScene extends PixelScene {
 				"Glass Pixel Dungeon",
 				Icons.SHPX.get(),
 				"Developed by: _Hazel_\nBased on Shattered Pixel Dungeon's open source",
-				"github.com/HazelnutCookie/glass-pixel-dungeon",
-				"https://github.com/HazelnutCookie/glass-pixel-dungeon");
+				"github.com/HazelnutCookie",
+				"https://github.com/HazelnutCookie");
 		if (landscape()){
-			hazel.setRect((w - fullWidth)/2f - 6, 10, 120, 0);
+			hazel.setRect((w - fullWidth)/2f - 28, 10, 120, 0);
 		} else {
 			hazel.setRect((w - fullWidth)/2f, 6, 120, 0);
 		}
 		content.add(hazel);
+
 		CreditsBlock amber = new CreditsBlock(true, GPD_COLOR,
-				"GPD Art",
-				Icons.SHPX.get(),
-				"Title screen and lots of spriting by Naomi Y",
+				"GPD Art:",
+				Icons.AMBER.get(),
+				"Title screen and \n spriting by Naomi Y",
 				"https://puppybytes.tumblr.com/",
 				"https://puppybytes.tumblr.com/");
 		amber.setSize(colWidth/2f, 0);
 		if (landscape()){
-			amber.setPos((hazel.right()+20), hazel.top());
+			amber.setPos((hazel.right()+15), hazel.top());
 		} else {
 			amber.setRect((w - fullWidth)/2f, 6, 120, 0);
 		}
 		content.add(amber);
+
+		CreditsBlock ara = new CreditsBlock(false, GPD_COLOR,
+				"Additional Sprites \n from Devoted PD:",
+				Icons.ARA.get(),
+				"Arackulele",
+				"github.com/Arackulele",
+				"https://github.com/Arackulele/devoted-pixel-dungeon");
+		ara.setSize(colWidth/2f, 0);
+		if (landscape()){
+			ara.setPos(amber.right()+15, amber.top());
+		} else {
+			ara.setPos(w/2f - colWidth/2f, amber.bottom()+5);
+		}
+		content.add(ara);
+
 		addLine(hazel.bottom() + 5, content);
 
 		//*** Shattered Pixel Dungeon Credits ***
