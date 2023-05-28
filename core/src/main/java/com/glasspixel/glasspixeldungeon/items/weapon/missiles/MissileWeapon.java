@@ -24,11 +24,7 @@ package com.glasspixel.glasspixeldungeon.items.weapon.missiles;
 import com.glasspixel.glasspixeldungeon.Dungeon;
 import com.glasspixel.glasspixeldungeon.actors.Actor;
 import com.glasspixel.glasspixeldungeon.actors.Char;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Buff;
-import com.glasspixel.glasspixeldungeon.actors.buffs.MagicImmune;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Momentum;
-import com.glasspixel.glasspixeldungeon.actors.buffs.PinCushion;
-import com.glasspixel.glasspixeldungeon.actors.buffs.RevealedArea;
+import com.glasspixel.glasspixeldungeon.actors.buffs.*;
 import com.glasspixel.glasspixeldungeon.actors.hero.Hero;
 import com.glasspixel.glasspixeldungeon.actors.hero.HeroClass;
 import com.glasspixel.glasspixeldungeon.actors.hero.Talent;
@@ -272,7 +268,12 @@ abstract public class MissileWeapon extends Weapon {
 	
 	@Override
 	public float castDelay(Char user, int dst) {
-		return delayFactor( user );
+		if (user.buff(Dexterity.class) != null) {
+			return delayFactor(user)/2;
+		}
+		else {
+			return delayFactor(user);
+		}
 	}
 	
 	protected void rangedHit( Char enemy, int cell ){

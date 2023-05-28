@@ -29,6 +29,7 @@ import com.glasspixel.glasspixeldungeon.actors.Char;
 import com.glasspixel.glasspixeldungeon.actors.buffs.Blindness;
 import com.glasspixel.glasspixeldungeon.actors.buffs.Buff;
 import com.glasspixel.glasspixeldungeon.actors.buffs.Degrade;
+import com.glasspixel.glasspixeldungeon.actors.buffs.Dexterity;
 import com.glasspixel.glasspixeldungeon.actors.hero.Hero;
 import com.glasspixel.glasspixeldungeon.actors.hero.Talent;
 import com.glasspixel.glasspixeldungeon.effects.Speck;
@@ -60,7 +61,7 @@ public class Item implements Bundlable {
 	protected static final String TXT_TO_STRING_LVL		= "%s %+d";
 	protected static final String TXT_TO_STRING_X		= "%s x%d";
 	
-	protected static final float TIME_TO_THROW		= 1.0f;
+	protected static float TIME_TO_THROW		= 1.0f;
 	protected static final float TIME_TO_PICK_UP	= 1.0f;
 	protected static final float TIME_TO_DROP		= 1.0f;
 	
@@ -648,7 +649,10 @@ public class Item implements Bundlable {
 	}
 	
 	public float castDelay( Char user, int dst ){
-		return TIME_TO_THROW;
+		if (user.buff(Dexterity.class) != null) {
+			return TIME_TO_THROW/2;
+		}
+		else {return TIME_TO_THROW;}
 	}
 	
 	protected static Hero curUser = null;

@@ -60,6 +60,7 @@ public class ItemSpriteSheet {
 	public static final int CATA_HOLDER     = PLACEHOLDERS+13;
 	public static final int ELIXIR_HOLDER   = PLACEHOLDERS+14;
 	public static final int SPELL_HOLDER    = PLACEHOLDERS+15;
+
 	static{
 		assignItemRect(SOMETHING,       8,  13);
 		assignItemRect(WEAPON_HOLDER,   14, 14);
@@ -82,7 +83,7 @@ public class ItemSpriteSheet {
 	private static final int UNCOLLECTIBLE  =                               xy(1, 2);   //16 slots
 	public static final int GOLD            = UNCOLLECTIBLE+0;
 	public static final int ENERGY          = UNCOLLECTIBLE+1;
-
+	public static final int VIAL_HOLDER		= UNCOLLECTIBLE+2;
 	public static final int DEWDROP         = UNCOLLECTIBLE+3;
 	public static final int PETAL           = UNCOLLECTIBLE+4;
 	public static final int SANDBAG         = UNCOLLECTIBLE+5;
@@ -93,7 +94,7 @@ public class ItemSpriteSheet {
 	static{
 		assignItemRect(GOLD,        15, 13);
 		assignItemRect(ENERGY,      16, 16);
-
+		assignItemRect(VIAL_HOLDER,      8, 15);
 		assignItemRect(DEWDROP,     10, 10);
 		assignItemRect(PETAL,       8,  8);
 		assignItemRect(SANDBAG,     10, 10);
@@ -554,6 +555,25 @@ public class ItemSpriteSheet {
 			assignItemRect(i, 12, 13);
 	}
 
+	private static final int VIALS        =                               xy(1, 26);  //16 slots
+	public static final int VIAL_CRIMSON  = VIALS+0;
+	public static final int VIAL_AMBER    = VIALS+1;
+	public static final int VIAL_GOLDEN   = VIALS+2;
+	public static final int VIAL_JADE     = VIALS+3;
+	public static final int VIAL_TURQUOISE= VIALS+4;
+	public static final int VIAL_AZURE    = VIALS+5;
+	public static final int VIAL_INDIGO   = VIALS+6;
+	public static final int VIAL_MAGENTA  = VIALS+7;
+	public static final int VIAL_BISTRE   = VIALS+8;
+	public static final int VIAL_CHARCOAL = VIALS+9;
+	public static final int VIAL_SILVER   = VIALS+10;
+	public static final int VIAL_IVORY    = VIALS+11;
+
+	static {
+		for (int i = VIALS; i < VIALS + 16; i++)
+			assignItemRect(i, 8, 15);
+	}
+
 	private static final int SEEDS              =                           xy(1, 24);  //16 slots
 	public static final int SEED_ROTBERRY       = SEEDS+0;
 	public static final int SEED_FIREBLOOM      = SEEDS+1;
@@ -878,8 +898,33 @@ public class ItemSpriteSheet {
 			assignIconRect( POTION_DIVINE,      7, 7 );
 		}
 
-		                                                                                //16 free slots
-
+		private static final int VIALS        =                            xy(1, 8);  //16 slots
+		public static final int VIAL_ACID  = VIALS+0;
+		public static final int VIAL_AMBROSIA= VIALS+1;
+		public static final int VIAL_CHILLINGAIR= VIALS+2;
+		public static final int VIAL_COMBUSTION= VIALS+3;
+		public static final int VIAL_DEXTERITY= VIALS+4;
+		public static final int VIAL_ILLUSIONS = VIALS+5;
+		public static final int VIAL_STASIS  = VIALS+6;
+		public static final int VIAL_VISIONS= VIALS+7;
+		public static final int VIAL_SUPERMIGHT= VIALS+8;
+		public static final int VIAL_TRIAGE= VIALS+9;
+		public static final int VIAL_VORTEX  = VIALS+10;
+		public static final int VIAL_WEBBING   = VIALS+11;
+		static {
+			assignIconRect( VIAL_ACID,     5, 7 );
+			assignIconRect( VIAL_AMBROSIA,   5, 7 );
+			assignIconRect( VIAL_CHILLINGAIR,   7, 5 );
+			assignIconRect( VIAL_COMBUSTION,   5, 7 );
+			assignIconRect( VIAL_DEXTERITY,   7, 6 );
+			assignIconRect( VIAL_ILLUSIONS,    8, 8 );
+			assignIconRect( VIAL_STASIS,     5, 5 );
+			assignIconRect( VIAL_VISIONS,   7, 6 );
+			assignIconRect( VIAL_SUPERMIGHT,   5, 5 );
+			assignIconRect( VIAL_TRIAGE,   6, 7 );
+			assignIconRect( VIAL_VORTEX,     7, 7 );
+			assignIconRect( VIAL_WEBBING,      7, 7 );
+		}
 	}
 
 }

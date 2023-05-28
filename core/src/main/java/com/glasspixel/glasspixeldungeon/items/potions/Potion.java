@@ -42,6 +42,7 @@ import com.glasspixel.glasspixeldungeon.items.potions.exotic.PotionOfCorrosiveGa
 import com.glasspixel.glasspixeldungeon.items.potions.exotic.PotionOfShroudingFog;
 import com.glasspixel.glasspixeldungeon.items.potions.exotic.PotionOfSnapFreeze;
 import com.glasspixel.glasspixeldungeon.items.potions.exotic.PotionOfStormClouds;
+import com.glasspixel.glasspixeldungeon.items.potions.vials.*;
 import com.glasspixel.glasspixeldungeon.journal.Catalog;
 import com.glasspixel.glasspixeldungeon.levels.Terrain;
 import com.glasspixel.glasspixeldungeon.messages.Messages;
@@ -82,7 +83,9 @@ public class Potion extends Item {
 	//used internally for potions that can be drunk or thrown
 	public static final String AC_CHOOSE = "CHOOSE";
 
-	private static final float TIME_TO_DRINK = 1f;
+	public float drinkTime(){
+			return 1f;
+	}
 
 	private static final LinkedHashMap<String, Integer> colors = new LinkedHashMap<String, Integer>() {
 		{
@@ -115,6 +118,12 @@ public class Potion extends Item {
 		mustThrowPots.add(PotionOfStormClouds.class);
 		
 		//also all brews, hardcoded
+
+		//Vials
+		mustThrowPots.add(VialOfAcid.class);
+		mustThrowPots.add(VialOfIcyShards.class);
+		mustThrowPots.add(VialOfCombustion.class);
+		mustThrowPots.add(VialOfVortexes.class);
 	}
 	
 	private static final HashSet<Class<?extends Potion>> canThrowPots = new HashSet<>();
@@ -129,6 +138,13 @@ public class Potion extends Item {
 		
 		//elixirs
 		canThrowPots.add(ElixirOfHoneyedHealing.class);
+
+		//vials
+		canThrowPots.add(VialOfIllusions.class);
+		canThrowPots.add(VialOfStasis.class);
+		canThrowPots.add(VialOfStrangeVisions.class);
+		canThrowPots.add(VialOfTriage.class);
+		canThrowPots.add(VialOfWebbing.class);
 	}
 	
 	protected static ItemStatusHandler<Potion> handler;
@@ -275,7 +291,7 @@ public class Potion extends Item {
 		
 		detach( hero.belongings.backpack );
 		
-		hero.spend( TIME_TO_DRINK );
+		hero.spend( drinkTime() );
 		hero.busy();
 		apply( hero );
 		
@@ -314,7 +330,7 @@ public class Potion extends Item {
 	public void cast( final Hero user, int dst ) {
 			super.cast(user, dst);
 	}
-	
+
 	public boolean isKnown() {
 		return anonymous || (handler != null && handler.isKnown( this ));
 	}

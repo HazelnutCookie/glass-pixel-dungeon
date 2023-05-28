@@ -26,48 +26,7 @@ import com.glasspixel.glasspixeldungeon.Badges;
 import com.glasspixel.glasspixeldungeon.Dungeon;
 import com.glasspixel.glasspixeldungeon.actors.blobs.Electricity;
 import com.glasspixel.glasspixeldungeon.actors.blobs.ToxicGas;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Adrenaline;
-import com.glasspixel.glasspixeldungeon.actors.buffs.AllyBuff;
-import com.glasspixel.glasspixeldungeon.actors.buffs.ArcaneArmor;
-import com.glasspixel.glasspixeldungeon.actors.buffs.AscensionChallenge;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Barkskin;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Berserk;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Bleeding;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Bless;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Buff;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Burning;
-import com.glasspixel.glasspixeldungeon.actors.buffs.ChampionEnemy;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Charm;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Chill;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Corrosion;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Cripple;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Doom;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Dread;
-import com.glasspixel.glasspixeldungeon.actors.buffs.FireImbue;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Frost;
-import com.glasspixel.glasspixeldungeon.actors.buffs.FrostImbue;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Fury;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Haste;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Hex;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Hunger;
-import com.glasspixel.glasspixeldungeon.actors.buffs.LifeLink;
-import com.glasspixel.glasspixeldungeon.actors.buffs.LostInventory;
-import com.glasspixel.glasspixeldungeon.actors.buffs.MagicalSleep;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Momentum;
-import com.glasspixel.glasspixeldungeon.actors.buffs.MonkEnergy;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Ooze;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Paralysis;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Poison;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Preparation;
-import com.glasspixel.glasspixeldungeon.actors.buffs.ShieldBuff;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Slow;
-import com.glasspixel.glasspixeldungeon.actors.buffs.SnipersMark;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Speed;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Stamina;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Terror;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Vertigo;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Vulnerable;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Weakness;
+import com.glasspixel.glasspixeldungeon.actors.buffs.*;
 import com.glasspixel.glasspixeldungeon.actors.hero.Hero;
 import com.glasspixel.glasspixeldungeon.actors.hero.HeroSubClass;
 import com.glasspixel.glasspixeldungeon.actors.hero.Talent;
@@ -1008,7 +967,7 @@ public abstract class Char extends Actor {
 	//similar to isImmune, but only factors in damage.
 	//Is used in AI decision-making
 	public boolean isInvulnerable( Class effect ){
-		return buff(Challenge.SpectatorFreeze.class) != null;
+		return buff(Challenge.SpectatorFreeze.class) != null || buff(Stasis.class) !=null;
 	}
 
 	protected HashSet<Property> properties = new HashSet<>();

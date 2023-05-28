@@ -21,28 +21,23 @@
 
 package com.glasspixel.glasspixeldungeon.actors.hero;
 
-import com.glasspixel.glasspixeldungeon.Assets;
-import com.glasspixel.glasspixeldungeon.Badges;
-import com.glasspixel.glasspixeldungeon.Challenges;
-import com.glasspixel.glasspixeldungeon.Dungeon;
-import com.glasspixel.glasspixeldungeon.QuickSlot;
-import com.glasspixel.glasspixeldungeon.SPDSettings;
+import com.glasspixel.glasspixeldungeon.*;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.ArmorAbility;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.duelist.Challenge;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.duelist.ElementalStrike;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.duelist.Feint;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.huntress.NaturesPower;
-import com.glasspixel.glasspixeldungeon.actors.hero.abilities.huntress.SpiritHawk;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.huntress.SpectralBlades;
-import com.glasspixel.glasspixeldungeon.actors.hero.abilities.mage.WildMagic;
-import com.glasspixel.glasspixeldungeon.actors.hero.abilities.mage.WarpBeacon;
+import com.glasspixel.glasspixeldungeon.actors.hero.abilities.huntress.SpiritHawk;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.mage.ElementalBlast;
+import com.glasspixel.glasspixeldungeon.actors.hero.abilities.mage.WarpBeacon;
+import com.glasspixel.glasspixeldungeon.actors.hero.abilities.mage.WildMagic;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.rogue.DeathMark;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.rogue.ShadowClone;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.rogue.SmokeBomb;
+import com.glasspixel.glasspixeldungeon.actors.hero.abilities.warrior.Endure;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.warrior.HeroicLeap;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.warrior.Shockwave;
-import com.glasspixel.glasspixeldungeon.actors.hero.abilities.warrior.Endure;
 import com.glasspixel.glasspixeldungeon.items.BrokenSeal;
 import com.glasspixel.glasspixeldungeon.items.Item;
 import com.glasspixel.glasspixeldungeon.items.Waterskin;
@@ -50,18 +45,9 @@ import com.glasspixel.glasspixeldungeon.items.armor.ClothArmor;
 import com.glasspixel.glasspixeldungeon.items.artifacts.CloakOfShadows;
 import com.glasspixel.glasspixeldungeon.items.bags.VelvetPouch;
 import com.glasspixel.glasspixeldungeon.items.food.Food;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfHealing;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfInvisibility;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfLiquidFlame;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfMindVision;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfStrength;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfIdentify;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfLullaby;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMagicMapping;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMirrorImage;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRage;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfUpgrade;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfTransference;
+import com.glasspixel.glasspixeldungeon.items.potions.*;
+import com.glasspixel.glasspixeldungeon.items.potions.vials.*;
+import com.glasspixel.glasspixeldungeon.items.scrolls.*;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfMagicMissile;
 import com.glasspixel.glasspixeldungeon.items.weapon.SpiritBow;
 import com.glasspixel.glasspixeldungeon.items.weapon.melee.*;
@@ -86,6 +72,22 @@ public enum HeroClass {
 	}
 
 	public void initHero( Hero hero ) {
+
+		new VialOfAcid().collect();
+		new VialOfAmbrosia().collect();
+		new VialOfIcyShards().collect();
+		new VialOfCombustion().collect();
+		new VialOfDexterity().collect();
+		new VialOfIllusions().collect();
+		new VialOfStasis().collect();
+		new VialOfStrangeVisions().collect();
+		new VialOfSuperhumanMight().collect();
+		new VialOfTriage().collect();
+		new VialOfVortexes().collect();
+		new VialOfWebbing().collect();
+		new WornShortsword().collect();
+		for (int i = 0; i < 11; i++) {
+			new ScrollOfIdentify().collect();}
 
 		hero.heroClass = this;
 		Talent.initClassTalents(hero);
