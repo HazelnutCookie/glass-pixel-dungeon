@@ -22,156 +22,20 @@
 package com.glasspixel.glasspixeldungeon.items;
 
 import com.glasspixel.glasspixeldungeon.Dungeon;
-import com.glasspixel.glasspixeldungeon.items.armor.Armor;
-import com.glasspixel.glasspixeldungeon.items.armor.ClothArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.DuelistArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.HuntressArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.LeatherArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.MageArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.MailArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.PlateArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.RogueArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.ScaleArmor;
-import com.glasspixel.glasspixeldungeon.items.armor.WarriorArmor;
-import com.glasspixel.glasspixeldungeon.items.artifacts.AlchemistsToolkit;
-import com.glasspixel.glasspixeldungeon.items.artifacts.Artifact;
-import com.glasspixel.glasspixeldungeon.items.artifacts.ChaliceOfBlood;
-import com.glasspixel.glasspixeldungeon.items.artifacts.CloakOfShadows;
-import com.glasspixel.glasspixeldungeon.items.artifacts.DriedRose;
-import com.glasspixel.glasspixeldungeon.items.artifacts.EtherealChains;
-import com.glasspixel.glasspixeldungeon.items.artifacts.HornOfPlenty;
-import com.glasspixel.glasspixeldungeon.items.artifacts.MasterThievesArmband;
-import com.glasspixel.glasspixeldungeon.items.artifacts.SandalsOfNature;
-import com.glasspixel.glasspixeldungeon.items.artifacts.TalismanOfForesight;
-import com.glasspixel.glasspixeldungeon.items.artifacts.TimekeepersHourglass;
-import com.glasspixel.glasspixeldungeon.items.artifacts.UnstableSpellbook;
+import com.glasspixel.glasspixeldungeon.items.armor.*;
+import com.glasspixel.glasspixeldungeon.items.artifacts.*;
 import com.glasspixel.glasspixeldungeon.items.food.Food;
 import com.glasspixel.glasspixeldungeon.items.food.MysteryMeat;
 import com.glasspixel.glasspixeldungeon.items.food.Pasty;
-import com.glasspixel.glasspixeldungeon.items.potions.Potion;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfExperience;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfFrost;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfHaste;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfHealing;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfInvisibility;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfLevitation;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfLiquidFlame;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfMindVision;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfParalyticGas;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfPurity;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfStrength;
-import com.glasspixel.glasspixeldungeon.items.potions.PotionOfToxicGas;
-import com.glasspixel.glasspixeldungeon.items.rings.Ring;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfAccuracy;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfArcana;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfElements;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfEnergy;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfEvasion;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfForce;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfFuror;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfHaste;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfMight;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfSharpshooting;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfTenacity;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfWealth;
-import com.glasspixel.glasspixeldungeon.items.scrolls.Scroll;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfIdentify;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfLullaby;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMagicMapping;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMirrorImage;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRage;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRecharging;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRemoveCurse;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfRetribution;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfTeleportation;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfTerror;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfTransmutation;
-import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfUpgrade;
-import com.glasspixel.glasspixeldungeon.items.stones.Runestone;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfFear;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfAggression;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfTransference;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfBlast;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfBlink;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfClairvoyance;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfDeepSleep;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfDisarming;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfEnchantment;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfFlock;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfIntuition;
-import com.glasspixel.glasspixeldungeon.items.stones.StoneOfShock;
-import com.glasspixel.glasspixeldungeon.items.wands.Wand;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfBlastWave;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfCorrosion;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfCorruption;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfDisintegration;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfFireblast;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfFrost;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfLightning;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfLivingEarth;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfMagicMissile;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfPrismaticLight;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfRegrowth;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfTransfusion;
-import com.glasspixel.glasspixeldungeon.items.wands.WandOfWarding;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.AssassinsBlade;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.BattleAxe;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Crossbow;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Dagger;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Dirk;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Flail;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Gauntlet;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Glaive;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Gloves;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Greataxe;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Greatshield;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Greatsword;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.HandAxe;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Longsword;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Mace;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.MagesStaff;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.MeleeWeapon;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Quarterstaff;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Rapier;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.RoundShield;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.RunicBlade;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Sai;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Scimitar;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Shortsword;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Spear;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Sword;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.WarHammer;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Whip;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.WornShortsword;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.Bolas;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.FishingSpear;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ForceCube;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.HeavyBoomerang;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.Javelin;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.Kunai;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.MissileWeapon;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.Shuriken;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingClub;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingHammer;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingKnife;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingSpear;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingSpike;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.ThrowingStone;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.Tomahawk;
-import com.glasspixel.glasspixeldungeon.items.weapon.missiles.Trident;
-import com.glasspixel.glasspixeldungeon.plants.Blindweed;
-import com.glasspixel.glasspixeldungeon.plants.Mageroyal;
-import com.glasspixel.glasspixeldungeon.plants.Earthroot;
-import com.glasspixel.glasspixeldungeon.plants.Fadeleaf;
-import com.glasspixel.glasspixeldungeon.plants.Firebloom;
-import com.glasspixel.glasspixeldungeon.plants.Icecap;
-import com.glasspixel.glasspixeldungeon.plants.Plant;
-import com.glasspixel.glasspixeldungeon.plants.Rotberry;
-import com.glasspixel.glasspixeldungeon.plants.Sorrowmoss;
-import com.glasspixel.glasspixeldungeon.plants.Starflower;
-import com.glasspixel.glasspixeldungeon.plants.Stormvine;
-import com.glasspixel.glasspixeldungeon.plants.Sungrass;
-import com.glasspixel.glasspixeldungeon.plants.Swiftthistle;
+import com.glasspixel.glasspixeldungeon.items.potions.*;
+import com.glasspixel.glasspixeldungeon.items.potions.vials.*;
+import com.glasspixel.glasspixeldungeon.items.rings.*;
+import com.glasspixel.glasspixeldungeon.items.scrolls.*;
+import com.glasspixel.glasspixeldungeon.items.stones.*;
+import com.glasspixel.glasspixeldungeon.items.wands.*;
+import com.glasspixel.glasspixeldungeon.items.weapon.melee.*;
+import com.glasspixel.glasspixeldungeon.items.weapon.missiles.*;
+import com.glasspixel.glasspixeldungeon.plants.*;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.Random;
@@ -206,6 +70,7 @@ public class Generator {
 		FOOD	( 0, 0, Food.class ),
 		
 		POTION	( 8, 8, Potion.class ),
+		VIAL    ( 2, 2, Vial.class),
 		SEED	( 1, 1, Plant.Seed.class ),
 		
 		SCROLL	( 8, 8, Scroll.class ),
@@ -270,6 +135,22 @@ public class Generator {
 					PotionOfExperience.class};
 			POTION.defaultProbs = new float[]{ 0, 6, 4, 3, 3, 3, 2, 2, 2, 2, 2, 1 };
 			POTION.probs = POTION.defaultProbs.clone();
+
+			VIAL.classes = new Class<?>[]{
+					VialOfSuperhumanMight.class,
+					VialOfTriage.class,
+					VialOfStrangeVisions.class,
+					VialOfIcyShards.class,
+					VialOfCombustion.class,
+					VialOfAcid.class,
+					VialOfDexterity.class,
+					VialOfIllusions.class,
+					VialOfVortexes.class,
+					VialOfWebbing.class,
+					VialOfStasis.class,
+					VialOfAmbrosia.class};
+			VIAL.defaultProbs = new float[]{ 0, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0 };
+			VIAL.probs = VIAL.defaultProbs.clone();
 			
 			SEED.classes = new Class<?>[]{
 					Rotberry.Seed.class, //quest item

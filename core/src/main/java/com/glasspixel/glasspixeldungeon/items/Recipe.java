@@ -40,6 +40,7 @@ import com.glasspixel.glasspixeldungeon.items.potions.elixirs.ElixirOfIcyTouch;
 import com.glasspixel.glasspixeldungeon.items.potions.elixirs.ElixirOfMight;
 import com.glasspixel.glasspixeldungeon.items.potions.elixirs.ElixirOfToxicEssence;
 import com.glasspixel.glasspixeldungeon.items.potions.exotic.ExoticPotion;
+import com.glasspixel.glasspixeldungeon.items.potions.vials.Vial;
 import com.glasspixel.glasspixeldungeon.items.scrolls.Scroll;
 import com.glasspixel.glasspixeldungeon.items.scrolls.exotic.ExoticScroll;
 import com.glasspixel.glasspixeldungeon.items.spells.Alchemize;
@@ -172,6 +173,7 @@ public abstract class Recipe {
 	private static Recipe[] oneIngredientRecipes = new Recipe[]{
 		new Scroll.ScrollToStone(),
 		new ExoticPotion.PotionToExotic(),
+		new Vial.PotionToVial(),
 		new ExoticScroll.ScrollToExotic(),
 		new ArcaneResin.Recipe(),
 		new Alchemize.Recipe(),

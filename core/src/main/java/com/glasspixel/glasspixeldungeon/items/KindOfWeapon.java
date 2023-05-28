@@ -27,6 +27,7 @@ import com.glasspixel.glasspixeldungeon.Dungeon;
 import com.glasspixel.glasspixeldungeon.actors.Actor;
 import com.glasspixel.glasspixeldungeon.actors.Char;
 import com.glasspixel.glasspixeldungeon.actors.buffs.Buff;
+import com.glasspixel.glasspixeldungeon.actors.buffs.Dexterity;
 import com.glasspixel.glasspixeldungeon.actors.hero.Hero;
 import com.glasspixel.glasspixeldungeon.actors.hero.HeroSubClass;
 import com.glasspixel.glasspixeldungeon.actors.hero.Talent;
@@ -118,11 +119,12 @@ abstract public class KindOfWeapon extends EquipableItem {
 				GLog.n( Messages.get(KindOfWeapon.class, "equip_cursed") );
 			}
 
-			if (hero.hasTalent(Talent.SWIFT_EQUIP)) {
+			if (((hero.hasTalent(Talent.SWIFT_EQUIP)) || (hero.buff(Dexterity.class) != null))) {
 				if (hero.buff(Talent.SwiftEquipCooldown.class) == null){
 					hero.spendAndNext(-hero.cooldown());
-					Buff.affect(hero, Talent.SwiftEquipCooldown.class, 19f)
-							.secondUse = hero.pointsInTalent(Talent.SWIFT_EQUIP) == 2;
+					if ((hero.buff(Dexterity.class) == null)) {
+						Buff.affect(hero, Talent.SwiftEquipCooldown.class, 19f)
+								.secondUse = hero.pointsInTalent(Talent.SWIFT_EQUIP) == 2;}
 					GLog.i(Messages.get(this, "swift_equip"));
 				} else if (hero.buff(Talent.SwiftEquipCooldown.class).hasSecondUse()) {
 					hero.spendAndNext(-hero.cooldown());

@@ -21,46 +21,11 @@
 
 package com.glasspixel.glasspixeldungeon.actors.hero;
 
-import com.glasspixel.glasspixeldungeon.Assets;
-import com.glasspixel.glasspixeldungeon.Badges;
-import com.glasspixel.glasspixeldungeon.Bones;
-import com.glasspixel.glasspixeldungeon.Dungeon;
-import com.glasspixel.glasspixeldungeon.GamesInProgress;
-import com.glasspixel.glasspixeldungeon.SPDSettings;
-import com.glasspixel.glasspixeldungeon.GlassPixelDungeon;
-import com.glasspixel.glasspixeldungeon.Statistics;
+import com.glasspixel.glasspixeldungeon.*;
 import com.glasspixel.glasspixeldungeon.actors.Actor;
 import com.glasspixel.glasspixeldungeon.actors.Char;
 import com.glasspixel.glasspixeldungeon.actors.blobs.SacrificialFire;
-import com.glasspixel.glasspixeldungeon.actors.buffs.AdrenalineSurge;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Amok;
-import com.glasspixel.glasspixeldungeon.actors.buffs.AnkhInvulnerability;
-import com.glasspixel.glasspixeldungeon.actors.buffs.ArtifactRecharge;
-import com.glasspixel.glasspixeldungeon.actors.buffs.AscensionChallenge;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Awareness;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Barkskin;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Barrier;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Berserk;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Bless;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Buff;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Burning;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Combo;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Drowsy;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Foresight;
-import com.glasspixel.glasspixeldungeon.actors.buffs.HoldFast;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Hunger;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Invisibility;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Levitation;
-import com.glasspixel.glasspixeldungeon.actors.buffs.LostInventory;
-import com.glasspixel.glasspixeldungeon.actors.buffs.MindVision;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Momentum;
-import com.glasspixel.glasspixeldungeon.actors.buffs.MonkEnergy;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Paralysis;
-import com.glasspixel.glasspixeldungeon.actors.buffs.PhysicalEmpower;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Recharging;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Regeneration;
-import com.glasspixel.glasspixeldungeon.actors.buffs.SnipersMark;
-import com.glasspixel.glasspixeldungeon.actors.buffs.Vertigo;
+import com.glasspixel.glasspixeldungeon.actors.buffs.*;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.ArmorAbility;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.duelist.Challenge;
 import com.glasspixel.glasspixeldungeon.actors.hero.abilities.duelist.ElementalStrike;
@@ -74,47 +39,24 @@ import com.glasspixel.glasspixeldungeon.effects.CellEmitter;
 import com.glasspixel.glasspixeldungeon.effects.CheckedCell;
 import com.glasspixel.glasspixeldungeon.effects.Speck;
 import com.glasspixel.glasspixeldungeon.effects.SpellSprite;
-import com.glasspixel.glasspixeldungeon.items.Amulet;
-import com.glasspixel.glasspixeldungeon.items.Ankh;
-import com.glasspixel.glasspixeldungeon.items.Dewdrop;
-import com.glasspixel.glasspixeldungeon.items.EquipableItem;
-import com.glasspixel.glasspixeldungeon.items.Heap;
+import com.glasspixel.glasspixeldungeon.items.*;
 import com.glasspixel.glasspixeldungeon.items.Heap.Type;
-import com.glasspixel.glasspixeldungeon.items.Item;
-import com.glasspixel.glasspixeldungeon.items.KindOfWeapon;
 import com.glasspixel.glasspixeldungeon.items.armor.Armor;
 import com.glasspixel.glasspixeldungeon.items.armor.ClassArmor;
 import com.glasspixel.glasspixeldungeon.items.armor.glyphs.AntiMagic;
 import com.glasspixel.glasspixeldungeon.items.armor.glyphs.Brimstone;
 import com.glasspixel.glasspixeldungeon.items.armor.glyphs.Viscosity;
-import com.glasspixel.glasspixeldungeon.items.artifacts.AlchemistsToolkit;
-import com.glasspixel.glasspixeldungeon.items.artifacts.CapeOfThorns;
-import com.glasspixel.glasspixeldungeon.items.artifacts.CloakOfShadows;
-import com.glasspixel.glasspixeldungeon.items.artifacts.DriedRose;
-import com.glasspixel.glasspixeldungeon.items.artifacts.EtherealChains;
-import com.glasspixel.glasspixeldungeon.items.artifacts.HornOfPlenty;
-import com.glasspixel.glasspixeldungeon.items.artifacts.MasterThievesArmband;
-import com.glasspixel.glasspixeldungeon.items.artifacts.TalismanOfForesight;
-import com.glasspixel.glasspixeldungeon.items.artifacts.TimekeepersHourglass;
+import com.glasspixel.glasspixeldungeon.items.artifacts.*;
 import com.glasspixel.glasspixeldungeon.items.bags.MagicalHolster;
 import com.glasspixel.glasspixeldungeon.items.journal.Guidebook;
-import com.glasspixel.glasspixeldungeon.items.keys.CrystalKey;
-import com.glasspixel.glasspixeldungeon.items.keys.GoldenKey;
-import com.glasspixel.glasspixeldungeon.items.keys.IronKey;
-import com.glasspixel.glasspixeldungeon.items.keys.Key;
-import com.glasspixel.glasspixeldungeon.items.keys.SkeletonKey;
+import com.glasspixel.glasspixeldungeon.items.keys.*;
 import com.glasspixel.glasspixeldungeon.items.potions.Potion;
 import com.glasspixel.glasspixeldungeon.items.potions.PotionOfExperience;
 import com.glasspixel.glasspixeldungeon.items.potions.PotionOfHealing;
 import com.glasspixel.glasspixeldungeon.items.potions.elixirs.ElixirOfMight;
 import com.glasspixel.glasspixeldungeon.items.potions.exotic.PotionOfDivineInspiration;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfAccuracy;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfEvasion;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfForce;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfFuror;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfHaste;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfMight;
-import com.glasspixel.glasspixeldungeon.items.rings.RingOfTenacity;
+import com.glasspixel.glasspixeldungeon.items.potions.vials.VialOfSuperhumanMight;
+import com.glasspixel.glasspixeldungeon.items.rings.*;
 import com.glasspixel.glasspixeldungeon.items.scrolls.Scroll;
 import com.glasspixel.glasspixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.glasspixel.glasspixeldungeon.items.scrolls.exotic.ScrollOfChallenge;
@@ -122,13 +64,7 @@ import com.glasspixel.glasspixeldungeon.items.wands.Wand;
 import com.glasspixel.glasspixeldungeon.items.wands.WandOfLivingEarth;
 import com.glasspixel.glasspixeldungeon.items.weapon.SpiritBow;
 import com.glasspixel.glasspixeldungeon.items.weapon.Weapon;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Flail;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.MagesStaff;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.MeleeWeapon;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Quarterstaff;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.RoundShield;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Sai;
-import com.glasspixel.glasspixeldungeon.items.weapon.melee.Scimitar;
+import com.glasspixel.glasspixeldungeon.items.weapon.melee.*;
 import com.glasspixel.glasspixeldungeon.items.weapon.missiles.MissileWeapon;
 import com.glasspixel.glasspixeldungeon.journal.Document;
 import com.glasspixel.glasspixeldungeon.journal.Notes;
@@ -152,20 +88,11 @@ import com.glasspixel.glasspixeldungeon.ui.BuffIndicator;
 import com.glasspixel.glasspixeldungeon.ui.QuickSlotButton;
 import com.glasspixel.glasspixeldungeon.ui.StatusPane;
 import com.glasspixel.glasspixeldungeon.utils.GLog;
-import com.glasspixel.glasspixeldungeon.windows.WndHero;
-import com.glasspixel.glasspixeldungeon.windows.WndMessage;
-import com.glasspixel.glasspixeldungeon.windows.WndOptions;
-import com.glasspixel.glasspixeldungeon.windows.WndResurrect;
-import com.glasspixel.glasspixeldungeon.windows.WndTradeItem;
+import com.glasspixel.glasspixeldungeon.windows.*;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import com.watabou.utils.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -255,9 +182,19 @@ public class Hero extends Char {
 
 		strBonus += RingOfMight.strengthBonus( this );
 		
-		AdrenalineSurge buff = buff(AdrenalineSurge.class);
-		if (buff != null){
-			strBonus += buff.boost();
+		AdrenalineSurge adrbuff = buff(AdrenalineSurge.class);
+		if (adrbuff != null){
+			strBonus += adrbuff.boost();
+		}
+
+		VialOfSuperhumanMight.StrBoost superbuff = buff(VialOfSuperhumanMight.StrBoost.class);
+		if (superbuff != null){
+			if (STR < 20) {
+				strBonus = 20-STR-strBonus;
+			}
+			else {
+				strBonus = 25-STR-strBonus;
+			}
 		}
 
 		if (hasTalent(Talent.STRONGMAN)){
@@ -1716,6 +1653,9 @@ public class Hero extends Char {
 				
 				if (buff(ElixirOfMight.HTBoost.class) != null){
 					buff(ElixirOfMight.HTBoost.class).onLevelUp();
+				}
+				if (buff(VialOfSuperhumanMight.StrBoost.class) != null){
+					buff(VialOfSuperhumanMight.StrBoost.class).onLevelUp();
 				}
 				
 				updateHT( true );

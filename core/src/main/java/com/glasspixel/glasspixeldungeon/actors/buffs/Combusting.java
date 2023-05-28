@@ -24,8 +24,6 @@ package com.glasspixel.glasspixeldungeon.actors.buffs;
 import com.glasspixel.glasspixeldungeon.Badges;
 import com.glasspixel.glasspixeldungeon.Dungeon;
 import com.glasspixel.glasspixeldungeon.actors.Char;
-import com.glasspixel.glasspixeldungeon.actors.blobs.Blob;
-import com.glasspixel.glasspixeldungeon.actors.blobs.Fire;
 import com.glasspixel.glasspixeldungeon.actors.hero.Hero;
 import com.glasspixel.glasspixeldungeon.actors.mobs.Thief;
 import com.glasspixel.glasspixeldungeon.effects.particles.ElmoParticle;
@@ -39,39 +37,34 @@ import com.glasspixel.glasspixeldungeon.items.food.FrozenCarpaccio;
 import com.glasspixel.glasspixeldungeon.items.food.MysteryMeat;
 import com.glasspixel.glasspixeldungeon.items.scrolls.Scroll;
 import com.glasspixel.glasspixeldungeon.messages.Messages;
-import com.glasspixel.glasspixeldungeon.scenes.GameScene;
 import com.glasspixel.glasspixeldungeon.sprites.CharSprite;
-import com.glasspixel.glasspixeldungeon.ui.BuffIndicator;
 import com.glasspixel.glasspixeldungeon.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 
-public class Burning extends Buff implements Hero.Doom {
-	
-	private static final float DURATION = 8f;
-	
+import static com.glasspixel.glasspixeldungeon.sprites.ItemSpriteSheet.Icons.VIAL_COMBUSTION;
+
+public class Combusting extends Buff implements Hero.Doom {
+
+	private static final float DURATION = 12f;
+
 	private float left;
-	
+
 	//for tracking burning of hero items
 	private int burnIncrement = 0;
-	
+
 	private static final String LEFT	= "left";
 	private static final String BURN	= "burnIncrement";
 
-	{
-		type = buffType.NEGATIVE;
-		announced = true;
-	}
-	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
 		bundle.put( LEFT, left );
 		bundle.put( BURN, burnIncrement );
 	}
-	
+
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
@@ -88,14 +81,14 @@ public class Burning extends Buff implements Hero.Doom {
 
 	@Override
 	public boolean act() {
-		
+
 		if (target.isAlive() && !target.isImmune(getClass())) {
-			
+
 			int damage = Random.NormalIntRange( 1, 3 + Dungeon.scalingDepth()/4 );
 			Buff.detach( target, Chill.class);
 
 			if (target instanceof Hero && target.buff(TimekeepersHourglass.timeStasis.class) == null && target.buff(Stasis.class) == null) {
-				
+
 				Hero hero = (Hero)target;
 
 				hero.damage( damage, this );
@@ -127,7 +120,7 @@ public class Burning extends Buff implements Hero.Doom {
 						Heap.burnFX( hero.pos );
 					}
 				}
-				
+
 			} else {
 				target.damage( damage, this );
 			}
@@ -151,10 +144,6 @@ public class Burning extends Buff implements Hero.Doom {
 			detach();
 		}
 		
-		if (Dungeon.level.flamable[target.pos] && Blob.volumeAt(target.pos, Fire.class) == 0) {
-			GameScene.add( Blob.seed( target.pos, 4, Fire.class ) );
-		}
-		
 		spend( TICK );
 		left -= TICK;
 		
@@ -166,11 +155,7 @@ public class Burning extends Buff implements Hero.Doom {
 		
 		return true;
 	}
-	
-	public void reignite( Char ch ) {
-		reignite( ch, DURATION );
-	}
-	
+
 	public void reignite( Char ch, float duration ) {
 		if (ch.isImmune(Burning.class)){
 			//TODO this only works for the hero, not others who can have brimstone+arcana effect
@@ -194,7 +179,7 @@ public class Burning extends Buff implements Hero.Doom {
 	
 	@Override
 	public int icon() {
-		return BuffIndicator.FIRE;
+		return VIAL_COMBUSTION;
 	}
 
 	@Override
